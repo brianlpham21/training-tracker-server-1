@@ -1,4 +1,5 @@
 'use strict';
+
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 
@@ -15,7 +16,8 @@ const UserSchema = mongoose.Schema({
     required: true
   },
   firstName: {type: String, default: ''},
-  lastName: {type: String, default: ''}
+  lastName: {type: String, default: ''},
+  routine: {type: String}
 });
 
 UserSchema.methods.serialize = function() {
