@@ -1,22 +1,19 @@
 'use strict';
 
 const mongoose = require('mongoose');
+const {Set} = require('../sets/models');
 
 mongoose.Promise = global.Promise;
 
 const ExerciseSchema = mongoose.Schema({
     name: {type: String, required: true},
-    set: {type: Number, required: true},
-    weight: {type: Number, required: true},
-    repetitions: {type: Number, required: true}
+    set: [Set]
 });
 
 ExerciseSchema.methods.serialize = function() {
   return {
     name: this.name || '',
-    set: this.set || '',
-    weight: this.weight || '',
-    repetitions: this.repetitions || ''
+    set: this.set || ''
   };
 };
 
